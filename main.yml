@@ -1,8 +1,0 @@
----
-- name: main data
-  hosts: dev
-  tasks:
-    - name: first block
-      ansible.builtin.debug:
-        msg: ansible_default_ipv4.address
-...
