@@ -1,0 +1,7 @@
+---
+# ./roles/docker_install/tasks/build_dockerfile.yml
+- name: Create container
+  ansible.builtin.command:
+    cmd: docker container create -ti ubuntu:latest /bin/bash
+  become: yes
+...

@@ -1,0 +1,10 @@
+---
+# ./site.yml
+- name: Install docker DEV container
+  hosts: dev
+  become: yes
+  become_method: sudo
+  roles:
+    - name: Docker install
+      role: docker_install
+...

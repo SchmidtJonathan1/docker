@@ -1,0 +1,6 @@
+---
+# ./roles/docker_install/tasks/main.yml
+- include_tasks: create_download_folder.yml
+- include_tasks: docker_install.yml
+- include_tasks: build_dockerfile.yml
+...

@@ -1,0 +1,15 @@
+# ./group_vars/all.yml
+## https://download.docker.com/linux/centos/
+
+# Define python Version
+python_version: "python39"
+
+# Destination path on remote clinet
+dest_path: "/home/jonschmi/docker"
+
+# Docker repo
+containerd:  "http://docker-release-yellow-prod.s3-website-us-east-1.amazonaws.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.4.4-3.1.el8.x86_64.rpm"
+docker_ce: "http://docker-release-yellow-prod.s3-website-us-east-1.amazonaws.com/linux/centos/8/x86_64/stable/Packages/docker-ce-20.10.6-3.el8.x86_64.rpm"
+docker_ce_cli: "http://docker-release-yellow-prod.s3-website-us-east-1.amazonaws.com/linux/centos/8/x86_64/stable/Packages/docker-ce-cli-20.10.6-3.el8.x86_64.rpm"
+docker_ce_rootless_extras: "http://docker-release-yellow-prod.s3-website-us-east-1.amazonaws.com/linux/centos/8/x86_64/stable/Packages/docker-ce-rootless-extras-20.10.6-3.el8.x86_64.rpm"
+docker_scan_plugin: "http://docker-release-yellow-prod.s3-website-us-east-1.amazonaws.com/linux/centos/8/x86_64/stable/Packages/docker-scan-plugin-0.7.0-3.el8.x86_64.rpm"

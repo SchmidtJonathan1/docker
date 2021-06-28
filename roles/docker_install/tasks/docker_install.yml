@@ -1,0 +1,42 @@
+---
+# ./roles/docker_install/tasks/docker-install.yml
+- name: Get files
+  ansible.builtin.get_url:
+    url: "{{ item }}"
+    dest: "{{ dest_path }}/rpm"
+  loop:
+    - "{{ containerd }}"
+    - "{{ docker_ce }}"
+    - "{{ docker_ce_cli }}"
+    - "{{ docker_ce_rootless_extras }}"
+    - "{{ docker_scan_plugin }}"
+  register: download_result
+
+- name: Register install files
+  find:
+    paths: "{{ dest_path }}/rpm"
+    patterns: "*.rpm"
+  register: install_files
+
+- name: Setting install list
+  set_fact:
+    install_list: "{{ install_files.files | map(attribute='path') | list }}"
+
+- name: install docker
+  ansible.builtin.dnf:
+    name: "{{ install_list }}"
+    disable_gpg_check: yes
+    state: present
+  register: install_result
+
+- name: check docker
+  debug:
+    msg: install_result
+
+- name: Start docker service
+  ansible.builtin.systemd:
+    name: docker
+    enabled: yes
+    masked: no
+    state: started
+...
